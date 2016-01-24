@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.23107.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1", "WebApplication1\WebApplication1.csproj", "{0A519C2E-AEE7-4379-8CAB-0E746311D1A5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebApplication1.Tests", "WebApplication1.Tests\WebApplication1.Tests.csproj", "{30F313DE-B980-47D8-87D7-19A064EA89A1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0A519C2E-AEE7-4379-8CAB-0E746311D1A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A519C2E-AEE7-4379-8CAB-0E746311D1A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A519C2E-AEE7-4379-8CAB-0E746311D1A5}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{0A519C2E-AEE7-4379-8CAB-0E746311D1A5}.Debug|x64.Build.0 = Debug|Any CPU
+		{0A519C2E-AEE7-4379-8CAB-0E746311D1A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A519C2E-AEE7-4379-8CAB-0E746311D1A5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A519C2E-AEE7-4379-8CAB-0E746311D1A5}.Release|x64.ActiveCfg = Release|x64
+		{0A519C2E-AEE7-4379-8CAB-0E746311D1A5}.Release|x64.Build.0 = Release|x64
+		{30F313DE-B980-47D8-87D7-19A064EA89A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{30F313DE-B980-47D8-87D7-19A064EA89A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{30F313DE-B980-47D8-87D7-19A064EA89A1}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{30F313DE-B980-47D8-87D7-19A064EA89A1}.Debug|x64.Build.0 = Debug|Any CPU
+		{30F313DE-B980-47D8-87D7-19A064EA89A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{30F313DE-B980-47D8-87D7-19A064EA89A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{30F313DE-B980-47D8-87D7-19A064EA89A1}.Release|x64.ActiveCfg = Release|x64
+		{30F313DE-B980-47D8-87D7-19A064EA89A1}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

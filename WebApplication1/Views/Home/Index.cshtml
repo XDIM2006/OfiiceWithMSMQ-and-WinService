@@ -1,0 +1,200 @@
+﻿ @model int
+<div class="row">
+    <div class="col-md-4">
+        <div>
+            CountOfImages:<br />
+            <input data-bind="value:CountOfImages" type="number" /><br />
+        </div>
+    </div>
+    <div class="col-md-6">
+        <ul data-bind="foreach: CustomResizeSettings">
+            <li>
+                Name:
+                <span data-bind="text: Name"></span>
+                Width:
+                <span data-bind="text: Width"></span>
+                Height:
+                <span data-bind="text: Height"></span>
+            </li>
+        </ul>
+        <div>
+            <form data-bind="submit: AddCustomResizeSetting">
+                Name:
+                <input data-bind="value:Name" type="text"/>
+                Width:
+                <input data-bind="value:Width" type="number"/><br/>
+                Height:
+                <input data-bind="value:Height" type="number"/>
+                <button type="submit">Add</button><br />
+            </form>
+        </div>
+    </div>
+</div>
+<br />
+<br />
+<br />
+<div class="row">
+    <div class="col-md-6">
+        Необходимо выбрать минимум один файлы:
+        <input title="Необходимо выбрать минимум один файлы" name="model" type="file" accept="image" id="uploadFile" multiple /><br />
+        <button data-bind="click:SelectImages">Загрузить</button>
+        <ul data-bind="foreach: Images">
+            <li data-bind="text: name"></li>
+        </ul>
+    </div>
+    <div class="col-md-6">
+        <button data-bind="click:SentToServer">Обработать фото</button>
+        <ul data-bind="foreach: ProcessingImages">
+            <li data-bind="text: name"></li>
+        </ul>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12">
+        <table>
+            <tbody data-bind="foreach: ProcessedImages">
+                <tr>
+                    <td>
+                        <span data-bind="text: Id"></span>
+                    </td>
+                    <td>
+                        <span data-bind="text: FileName"></span>
+                    </td>
+                    <td>
+                        <img data-bind="attr: {'src': PreviewPath}" />
+                    </td>
+                    <td>
+                        <span data-bind="text: Width + ' x ' + Height "></span>
+                    </td>
+                    <td>
+                        <ul data-bind="foreach: ResizedImages">
+                            <li>
+                                <a target="_blank" data-bind="text: FileName, attr: {'href': FilePath}"></a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12" data-bind="with: DBImagesTable">
+        <table class="table">
+            <thead>
+                <tr>
+                    <!-- ko foreach: Columns -->
+                    <th data-bind="click: $parent.SetSort">
+                        <span data-bind="text: $data"></span>
+                    </th>
+                    <!-- /ko -->
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: DBImages">
+                <tr>
+                    <td>
+                        <span data-bind="text: Id"></span>
+                    </td>
+                    <td>
+                        <span data-bind="text: FileName"></span>
+                    </td>
+                    <td>
+                        <span data-bind="text: Height"></span>
+                    </td>
+                    <td>
+                        <span data-bind="text: Width"></span>
+                    </td>
+                    <td>
+                        <a target="_blank" data-bind="attr: {'href': FilePath}"><img data-bind="attr: {'src': PreviewPath}" /></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous" data-bind="click: PreviousPage">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <!-- ko foreach: Pages -->
+                <li data-bind="click: $parent.SetPage"><a href="#" data-bind="text: $data"></a></li>
+                <!-- /ko -->
+                <li>
+                    <a href="#" aria-label="Next" data-bind="click: NextPage">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>    
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-12" data-bind="with: DBResizedImagesTable">
+        <table class="table">
+            <thead>
+                <tr>
+                    <!-- ko foreach: Columns -->
+                    <th data-bind="click: $parent.SetSort">
+                        <span data-bind="text: $data"></span>
+                    </th>
+                    <!-- /ko -->
+                </tr>
+            </thead>
+            <tbody data-bind="foreach: DBResizedImages">
+                <tr>
+                    <td>
+                        <span data-bind="text: Id"></span>
+                    </td>
+                    <td>
+                        <span data-bind="text: FileName"></span>
+                    </td>
+                    <td>
+                        <img data-bind="attr: {'src': PreviewPath}" />
+                    </td>
+                    <td>
+                        <span data-bind="text: Height"></span>
+                    </td>
+                    <td>
+                        <span data-bind="text: Width"></span>
+                    </td>
+                    <td>
+                        <span data-bind="text: StartResize "></span>
+                    </td>
+                    <td>
+                        <span data-bind="text: FinishResize "></span>
+                    </td>
+                    <td>
+                        <a target="_blank" data-bind="attr: {'href': FilePath}"><img data-bind="attr: {'src': PreviewPath}" /></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+        <nav>
+            <ul class="pagination">
+                <li>
+                    <a href="#" aria-label="Previous" data-bind="click: PreviousPage">
+                        <span aria-hidden="true">&laquo;</span>
+                    </a>
+                </li>
+                <!-- ko foreach: Pages -->
+                <li data-bind="click: $parent.SetPage"><a href="#" data-bind="text: $data"></a></li>
+                <!-- /ko -->
+                <li>
+                    <a href="#" aria-label="Next" data-bind="click: NextPage">
+                        <span aria-hidden="true">&raquo;</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>   
+    </div>
+</div>
+<div id="loading" class="load" style="display: none">
+    <p>Loading Data...</p>
+</div>
+@section scripts
+{
+    <script>
+        ko.applyBindings(MainViewModel(@Html.Raw(Json.Encode(Model))));
+    </script>
+}
